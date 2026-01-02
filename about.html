@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Zyloq Hosting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <style>
+        /* Additional styles for About page */
+        .about-hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 116, 255, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .mission-section {
+            background: var(--dark-gray);
+            padding: 100px 0;
+        }
+        
+        .mission-card {
+            background: var(--dark);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            background: rgba(0, 116, 255, 0.05);
+            border-color: rgba(0, 116, 255, 0.2);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(85, 204, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+            color: var(--secondary);
+        }
+        
+        .team-section {
+            padding: 100px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .team-card {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+        }
+        
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background: rgba(0, 116, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 48px;
+            color: var(--secondary);
+            border: 3px solid rgba(0, 116, 255, 0.2);
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .team-social a:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            width: 50%;
+            padding-right: 40px;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-right: 0;
+            padding-left: 40px;
+        }
+        
+        .timeline-content {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -50px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -50px;
+        }
+        
+        .timeline-year {
+            display: inline-block;
+            background: rgba(0, 116, 255, 0.1);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="logo-text">Zyloq<span class="logo-highlight">Hosting</span></span>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="minecraft.html"><i class="fas fa-cube"></i> Minecraft Hosting</a>
+                        <a href="vps.html"><i class="fas fa-server"></i> VPS Hosting</a>
+                        <a href="web.html"><i class="fas fa-globe"></i> Web Hosting</a>
+                    </div>
+                </div>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="panel.html" class="nav-btn">Client Panel</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <h6 class="section-subtitle">Our Story</h6>
+            <h1 class="hero-title">Building the Future of <span class="gradient-text">Hosting</span></h1>
+            <p class="hero-description" style="max-width: 700px; margin: 0 auto 40px;">Founded in 2020, Zyloq Hosting has grown from a small gaming community project to a premium hosting provider serving thousands of customers worldwide.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-value">3+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5K+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Support Team</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-card">
+                <h2 style="text-align: center; margin-bottom: 30px;">Our Mission</h2>
+                <p style="text-align: center; color: var(--text); font-size: 20px; line-height: 1.6; max-width: 800px; margin: 0 auto;">To provide premium, high-performance hosting solutions that empower creators, developers, and businesses to build and grow their online presence without compromise.</p>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Performance First</h3>
+                        <p style="color: var(--text-secondary); margin-top: 15px;">We invest in the latest hardware and optimize every layer of our stack for maximum performance.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Exceptional Support</h3>
+                        <p style="color: var(--text-secondary); margin-top: 15px;">Our support team consists of experts who actually use and understand the products they support.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Reliability & Security</h3>
+                        <p style="color: var(--text-secondary); margin-top: 15px;">We implement redundant systems and enterprise-grade security to ensure 100% uptime and data protection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Our Journey</h6>
+                <h2 class="section-title">Company <span class="gradient-text">Timeline</span></h2>
+                <p class="section-description">From humble beginnings to becoming a trusted hosting provider.</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>Foundation</h3>
+                        <p style="color: var(--text-secondary); margin-top: 15px;">Zyloq Hosting was founded by a group of gamers and developers frustrated with the poor performance of existing hosting solutions. We started with a single server in a New York data center.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3>First Major Upgrade</h3>
+                        <p style="color: var(--text-secondary); margin-top: 15px;">Upgraded to AMD Ryzen 9 processors and implemented our custom control panel. Reached 1,000 customers milestone.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3>Global Expansion</h3>
+                        <p style="color: var(--text-secondary); margin-top: 15px;">Expanded to European and Asian data centers. Launched VPS and Web Hosting services. Implemented enterprise DDoS protection.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Ryzen 9 9950X Launch</h3>
+                        <p style="color: var(--text-secondary); margin-top: 15px;">Became one of the first hosting providers to deploy AMD Ryzen 9 9950X servers. Reached 5,000 customers across 50+ countries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" style="background: var(--dark-gray);">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Our Team</h6>
+                <h2 class="section-title">Meet Our <span class="gradient-text">Leadership</span></h2>
+                <p class="section-description">Experienced professionals passionate about technology and customer success.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>! Fabrizio P.</h3>
+                    <p style="color: var(--secondary); margin: 10px 0;">CEO & Founder</p>
+                    <p style="color: var(--text-secondary); font-size: 14px;">10+ years in infrastructure and gaming hosting. Previously worked at major cloud providers.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Lautaro</h3>
+                    <p style="color: var(--secondary); margin: 10px 0;">CEO</p>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Infrastructure architect with expertise in high-performance computing and networking.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>! Adrian V.</h3>
+                    <p style="color: var(--secondary); margin: 10px 0;">Designer and Support</p>
+                    <p style="color: var(--text-secondary); font-size: 14px;">Built and leads our 24/7 support team with focus on customer satisfaction.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Why Zyloq?</h6>
+                <h2 class="section-title">What Makes Us <span class="gradient-text">Different</span></h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="feature-title">Latest Hardware</h3>
+                    <p class="feature-description">We constantly upgrade our infrastructure with the latest AMD Ryzen processors and NVMe storage.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="feature-title">Custom Software</h3>
+                    <p class="feature-description">Our control panel and management tools are built in-house specifically for gaming and application hosting.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Community Focus</h3>
+                    <p class="feature-description">We actively engage with our community through Discord, feedback sessions, and feature voting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2 class="cta-title">Join Thousands of Satisfied Customers</h2>
+                    <p class="cta-description">Experience the Zyloq difference with premium hosting backed by a passionate team.</p>
+                    
+                    <div class="cta-features">
+                        <div class="cta-feature">
+                            <i class="fas fa-rocket"></i>
+                            <span>60-second deployment</span>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>30-day money-back guarantee</span>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-headset"></i>
+                            <span>24/7 expert support</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="minecraft.html" class="btn btn-primary btn-large btn-glow">
+                        <i class="fas fa-server"></i> Get Started
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-envelope"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span class="logo-text">Zyloq<span class="logo-highlight">Hosting</span></span>
+                    </a>
+                    <p class="footer-description">Premium hosting solutions built by passionate technologists.</p>
+                    
+                    <div class="footer-social">
+                        <a href="https://discord.gg/aGAtT6Bepa" target="_blank" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="minecraft.html" class="footer-link">Minecraft Hosting</a>
+                    <a href="vps.html" class="footer-link">VPS Hosting</a>
+                    <a href="web.html" class="footer-link">Web Hosting</a>
+                    <a href="features.html" class="footer-link">Features</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <a href="about.html" class="footer-link active">About Us</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Status</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal</h4>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Refund Policy</a>
+                    <a href="#" class="footer-link">Acceptable Use</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Discord: https://discord.gg/aGAtT6Bepa</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Web: www.zyloqhosting.store</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Panel: panel.zyloq.store</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© <span class="current-year">2023</span> Zyloq Hosting. All rights reserved.</p>
+                <div class="footer-payments">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/particles.js"></script>
+</body>
+</html>

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPS Hosting | Ryzen 9 9950X | Zyloq Hosting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <style>
+        /* Additional styles for VPS page */
+        .vps-specs {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .spec-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 116, 255, 0.05);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(0, 116, 255, 0.1);
+        }
+        
+        .spec-icon {
+            font-size: 32px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .spec-value {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .spec-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .use-cases {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .use-case-card {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+        
+        .use-case-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+        }
+        
+        .use-case-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(85, 204, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--secondary);
+            margin-bottom: 25px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 60px 0;
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .comparison-table th {
+            background: rgba(0, 116, 255, 0.1);
+            color: var(--text);
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .plan-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(0, 116, 255, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .check-cell {
+            color: var(--secondary);
+            font-size: 18px;
+        }
+        
+        .cross-cell {
+            color: #FF5555;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="logo-text">Zyloq<span class="logo-highlight">Hosting</span></span>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link active">Services <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="minecraft.html"><i class="fas fa-cube"></i> Minecraft Hosting</a>
+                        <a href="vps.html" class="active"><i class="fas fa-server"></i> VPS Hosting</a>
+                        <a href="web.html"><i class="fas fa-globe"></i> Web Hosting</a>
+                    </div>
+                </div>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="panel.html" class="nav-btn">Client Panel</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h6 class="hero-subtitle">Premium VPS Hosting</h6>
+                <h1 class="hero-title">Ryzen 9 9950X <span class="gradient-text">Virtual Private Servers</span></h1>
+                <p class="hero-description">Dedicated resources • Full root access • NVMe Storage • 10Gb/s Network</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">8.99</div>
+                        <div class="stat-label">Starting at</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">99.9%</div>
+                        <div class="stat-label">Uptime SLA</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">1 Gbps</div>
+                        <div class="stat-label">Guaranteed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">Monitoring</div>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#plans" class="btn btn-primary btn-glow">
+                        <i class="fas fa-server"></i> View VPS Plans
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-headset"></i> Custom Quote
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <div class="card-header">
+                        <div class="card-title">VPS-1</div>
+                        <div class="card-price">$8.99<span class="price-unit">/month</span></div>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>2 vCPU Cores</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>4GB DDR5 RAM</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>80GB NVMe SSD</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>1TB Bandwidth</span>
+                        </div>
+                    </div>
+                    <a href="#" class="card-btn">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-bg-particles" id="particles-js"></div>
+        <div class="hero-gradient"></div>
+    </section>
+
+    <!-- VPS Specifications -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Hardware Specifications</h6>
+                <h2 class="section-title">Enterprise-Grade <span class="gradient-text">Infrastructure</span></h2>
+                <p class="section-description">Our VPS hosting runs on the latest AMD Ryzen 9 processors with NVMe storage and high-speed networking.</p>
+            </div>
+            
+            <div class="vps-specs">
+                <h3 style="text-align: center; margin-bottom: 20px;">AMD Ryzen 9 9950X Platform</h3>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px;">16 Cores / 32 Threads @ 5.7GHz Boost Clock</p>
+                
+                <div class="specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="spec-value">16 Cores</div>
+                        <div class="spec-label">CPU Cores</div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="spec-value">5.7 GHz</div>
+                        <div class="spec-label">Boost Clock</div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-memory"></i>
+                        </div>
+                        <div class="spec-value">DDR5</div>
+                        <div class="spec-label">Memory Type</div>
+                    </div>
+                    
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-hdd"></i>
+                        </div>
+                        <div class="spec-value">NVMe 4.0</div>
+                        <div class="spec-label">Storage</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="section" style="background: var(--dark);">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Perfect For</h6>
+                <h2 class="section-title">Ideal <span class="gradient-text">Use Cases</span></h2>
+                <p class="section-description">From game servers to development environments, our VPS solutions handle it all.</p>
+            </div>
+            
+            <div class="use-cases">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Game Networks</h3>
+                    <p style="color: var(--text-secondary); margin: 15px 0 20px;">Host multiple game servers with dedicated resources for stable performance even during peak hours.</p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Minecraft Networks</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> FiveM / GTA V RP</li>
+                        <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Discord Bots</li>
+                    </ul>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Development & Testing</h3>
+                    <p style="color: var(--text-secondary); margin: 15px 0 20px;">Full root access and isolated environments perfect for development, staging, and testing.</p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Web Applications</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> API Servers</li>
+                        <li><i class="fas fa-check" style="color: var(--secondary); margin-right: 10px;"></i> Database Hosting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VPS Plans -->
+    <section class="section" id="plans">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Pricing Plans</h6>
+                <h2 class="section-title">Choose Your <span class="gradient-text">VPS Plan</span></h2>
+                <p class="section-description">All plans include full root access, DDoS protection, and 24/7 support.</p>
+                
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 30px;">
+                    <button class="billing-toggle active" data-period="monthly">Monthly Billing</button>
+                    <button class="billing-toggle" data-period="yearly">Yearly Billing (Save 20%)</button>
+                </div>
+            </div>
+            
+            <div class="services-grid">
+                <!-- VPS-1 -->
+                <div class="service-card">
+                    <div class="service-icon vps">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="service-title">VPS-1</h3>
+                    <p class="service-description">Perfect for small game servers, Discord bots, and personal projects.</p>
+                    
+                    <div class="service-price">
+                        <div class="price-monthly">
+                            Starting at <span class="price">$8.99</span> / month
+                        </div>
+                        <div class="price-yearly" style="display: none;">
+                            Starting at <span class="price">$7.19</span> / month
+                        </div>
+                    </div>
+                    
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 2 vCPU Cores</span>
+                        <span><i class="fas fa-check"></i> 4GB DDR5 RAM</span>
+                        <span><i class="fas fa-check"></i> 80GB NVMe SSD</span>
+                        <span><i class="fas fa-check"></i> 1TB Bandwidth</span>
+                        <span><i class="fas fa-check"></i> 1 IPv4 Address</span>
+                        <span><i class="fas fa-check"></i> Full Root Access</span>
+                    </div>
+                    
+                    <a href="#" class="card-btn" style="margin-top: 20px;">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- VPS-2 (Most Popular) -->
+                <div class="service-card" style="border: 2px solid var(--primary); position: relative;">
+                    <div class="plan-badge" style="position: absolute; top: 20px; right: 20px;">Most Popular</div>
+                    <div class="service-icon vps">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="service-title">VPS-2</h3>
+                    <p class="service-description">Ideal for medium game networks, web applications, and development.</p>
+                    
+                    <div class="service-price">
+                        <div class="price-monthly">
+                            Starting at <span class="price">$16.99</span> / month
+                        </div>
+                        <div class="price-yearly" style="display: none;">
+                            Starting at <span class="price">$13.59</span> / month
+                        </div>
+                    </div>
+                    
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 4 vCPU Cores</span>
+                        <span><i class="fas fa-check"></i> 8GB DDR5 RAM</span>
+                        <span><i class="fas fa-check"></i> 160GB NVMe SSD</span>
+                        <span><i class="fas fa-check"></i> 2TB Bandwidth</span>
+                        <span><i class="fas fa-check"></i> 1 IPv4 Address</span>
+                        <span><i class="fas fa-check"></i> Full Root Access</span>
+                    </div>
+                    
+                    <a href="#" class="card-btn" style="margin-top: 20px; background: var(--gradient);">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- VPS-4 -->
+                <div class="service-card">
+                    <div class="service-icon vps">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="service-title">VPS-4</h3>
+                    <p class="service-description">High-performance for large networks, databases, and enterprise apps.</p>
+                    
+                    <div class="service-price">
+                        <div class="price-monthly">
+                            Starting at <span class="price">$32.99</span> / month
+                        </div>
+                        <div class="price-yearly" style="display: none;">
+                            Starting at <span class="price">$26.39</span> / month
+                        </div>
+                    </div>
+                    
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 8 vCPU Cores</span>
+                        <span><i class="fas fa-check"></i> 16GB DDR5 RAM</span>
+                        <span><i class="fas fa-check"></i> 320GB NVMe SSD</span>
+                        <span><i class="fas fa-check"></i> 4TB Bandwidth</span>
+                        <span><i class="fas fa-check"></i> 2 IPv4 Addresses</span>
+                        <span><i class="fas fa-check"></i> Full Root Access</span>
+                    </div>
+                    
+                    <a href="#" class="card-btn" style="margin-top: 20px;">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="section" style="background: var(--dark-gray);">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Feature Comparison</h6>
+                <h2 class="section-title">Compare All <span class="gradient-text">VPS Plans</span></h2>
+            </div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>VPS-1</th>
+                        <th>VPS-2</th>
+                        <th>VPS-4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>vCPU Cores</td>
+                        <td>2 Cores</td>
+                        <td>4 Cores</td>
+                        <td>8 Cores</td>
+                    </tr>
+                    <tr>
+                        <td>DDR5 RAM</td>
+                        <td>4GB</td>
+                        <td>8GB</td>
+                        <td>16GB</td>
+                    </tr>
+                    <tr>
+                        <td>NVMe Storage</td>
+                        <td>80GB</td>
+                        <td>160GB</td>
+                        <td>320GB</td>
+                    </tr>
+                    <tr>
+                        <td>Bandwidth</td>
+                        <td>1TB</td>
+                        <td>2TB</td>
+                        <td>4TB</td>
+                    </tr>
+                    <tr>
+                        <td>IPv4 Addresses</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>DDoS Protection</td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>24/7 Support</td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Root Access</td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Backups</td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                        <td class="check-cell"><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Price</td>
+                        <td>$8.99</td>
+                        <td>$16.99</td>
+                        <td>$32.99</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2 class="cta-title">Need a Custom VPS Solution?</h2>
+                    <p class="cta-description">Contact our sales team for custom configurations, dedicated resources, or enterprise solutions.</p>
+                    
+                    <div class="cta-features">
+                        <div class="cta-feature">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>Custom configurations available</span>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-headset"></i>
+                            <span>24/7 technical support</span>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-rocket"></i>
+                            <span>Same-day deployment</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large btn-glow">
+                        <i class="fas fa-envelope"></i> Contact Sales
+                    </a>
+                    <a href="https://discord.gg/aGAtT6Bepa" target="_blank" class="btn btn-secondary btn-large">
+                        <i class="fab fa-discord"></i> Discord Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span class="logo-text">Zyloq<span class="logo-highlight">Hosting</span></span>
+                    </a>
+                    <p class="footer-description">Premium VPS hosting built on enterprise hardware with 24/7 expert support.</p>
+                    
+                    <div class="footer-social">
+                        <a href="https://discord.gg/aGAtT6Bepa" target="_blank" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="minecraft.html" class="footer-link">Minecraft Hosting</a>
+                    <a href="vps.html" class="footer-link active">VPS Hosting</a>
+                    <a href="web.html" class="footer-link">Web Hosting</a>
+                    <a href="features.html" class="footer-link">Features</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Status</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal</h4>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Refund Policy</a>
+                    <a href="#" class="footer-link">Acceptable Use</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Discord: https://discord.gg/aGAtT6Bepa</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Web: www.zyloqhosting.store</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Panel: panel.zyloq.store</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© <span class="current-year">2023</span> Zyloq Hosting. All rights reserved.</p>
+                <div class="footer-payments">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/particles.js"></script>
+</body>
+</html>

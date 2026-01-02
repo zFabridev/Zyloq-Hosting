@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Hosting | Premium Gaming Servers | Zyloq Hosting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <style>
+        /* Minecraft-specific styles */
+        .minecraft-hero {
+            position: relative;
+            padding: 160px 0 100px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(11, 11, 11, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .minecraft-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 116, 255, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(85, 204, 255, 0.15) 0%, transparent 50%);
+        }
+        
+        .minecraft-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(85, 204, 255, 0.1);
+            color: var(--secondary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 1px solid rgba(85, 204, 255, 0.2);
+        }
+        
+        .minecraft-badge i {
+            font-size: 16px;
+        }
+        
+        .minecraft-plans {
+            padding: 100px 0;
+            background: var(--dark);
+        }
+        
+        .plans-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 60px;
+            background: var(--dark-gray);
+            padding: 10px;
+            border-radius: 50px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .plan-toggle-btn {
+            padding: 12px 30px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            flex: 1;
+        }
+        
+        .plan-toggle-btn.active {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .plan-card {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 116, 255, 0.3);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .plan-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+        
+        .plan-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+        }
+        
+        .plan-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 116, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+            color: var(--secondary);
+        }
+        
+        .plan-name {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .plan-description {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .plan-price {
+            margin-bottom: 30px;
+        }
+        
+        .price-amount {
+            font-size: 48px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+        
+        .price-period {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .plan-features {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .plan-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            color: var(--text-secondary);
+        }
+        
+        .plan-feature:last-child {
+            border-bottom: none;
+        }
+        
+        .plan-feature i {
+            color: var(--secondary);
+            font-size: 14px;
+        }
+        
+        .plan-button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: rgba(0, 116, 255, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(0, 116, 255, 0.2);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .plan-button:hover {
+            background: rgba(0, 116, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 116, 255, 0.1);
+        }
+        
+        .plan-card.popular .plan-button {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .minecraft-features {
+            padding: 100px 0;
+            background: var(--dark-gray);
+        }
+        
+        .feature-highlight {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .feature-visual {
+            position: relative;
+        }
+        
+        .feature-image {
+            background: linear-gradient(135deg, #0074FF, #55CCFF);
+            border-radius: var(--radius-lg);
+            padding: 5px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .feature-image img {
+            width: 100%;
+            border-radius: calc(var(--radius-lg) - 5px);
+            display: block;
+        }
+        
+        .feature-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--gradient);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-content h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .feature-content p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+        
+        .feature-list {
+            margin-top: 30px;
+        }
+        
+        .feature-list-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-list-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 116, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .comparison-section {
+            padding: 100px 0;
+            background: var(--dark);
+        }
+        
+        .comparison-table {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 60px;
+        }
+        
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 1fr repeat(3, 1fr);
+            background: rgba(0, 116, 255, 0.05);
+            padding: 25px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr repeat(3, 1fr);
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            align-items: center;
+        }
+        
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+        
+        .comparison-row:nth-child(even) {
+            background: rgba(255, 255, 255, 0.01);
+        }
+        
+        .comparison-feature {
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .comparison-value {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        
+        .comparison-value.check {
+            color: var(--secondary);
+            font-size: 18px;
+        }
+        
+        .comparison-value.cross {
+            color: #FF5555;
+            font-size: 18px;
+        }
+        
+        .minecraft-showcase {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-gray) 100%);
+        }
+        
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .showcase-card {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+        
+        .showcase-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 116, 255, 0.2);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .showcase-image {
+            height: 200px;
+            background: linear-gradient(135deg, #0074FF, #55CCFF);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .showcase-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(11, 11, 11, 0.8) 100%);
+        }
+        
+        .showcase-content {
+            padding: 30px;
+        }
+        
+        .showcase-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 116, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 24px;
+        }
+        
+        .modpacks-section {
+            padding: 100px 0;
+            background: var(--dark-gray);
+        }
+        
+        .modpacks-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .modpack-card {
+            background: var(--dark);
+            border-radius: var(--radius-lg);
+            padding: 30px 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+        
+        .modpack-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(85, 204, 255, 0.2);
+            background: rgba(85, 204, 255, 0.02);
+        }
+        
+        .modpack-icon {
+            font-size: 40px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .modpack-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .modpack-version {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .modpack-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(85, 204, 255, 0.1);
+            color: var(--secondary);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .modpack-button:hover {
+            background: rgba(85, 204, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .deploy-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--dark) 100%);
+            text-align: center;
+        }
+        
+        .deploy-card {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .deploy-steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+        
+        .deploy-step {
+            text-align: center;
+            width: 180px;
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 auto 20px;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .step-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .step-description {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 992px) {
+            .plans-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .plan-card.popular {
+                transform: none;
+            }
+            
+            .plan-card.popular:hover {
+                transform: translateY(-10px);
+            }
+            
+            .feature-highlight {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .showcase-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modpacks-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .comparison-header,
+            .comparison-row {
+                grid-template-columns: 1fr repeat(2, 1fr);
+            }
+            
+            .comparison-header > div:nth-child(4),
+            .comparison-row > div:nth-child(4) {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .plans-toggle {
+                flex-direction: column;
+                border-radius: var(--radius-md);
+                padding: 20px;
+            }
+            
+            .plan-toggle-btn {
+                width: 100%;
+            }
+            
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modpacks-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .deploy-steps {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            
+            .deploy-step {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .comparison-header,
+            .comparison-row {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .comparison-header > div:nth-child(3),
+            .comparison-row > div:nth-child(3) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="logo-text">Zyloq<span class="logo-highlight">Hosting</span></span>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link active">Services <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="minecraft.html" class="active"><i class="fas fa-cube"></i> Minecraft Hosting</a>
+                        <a href="vps.html"><i class="fas fa-server"></i> VPS Hosting</a>
+                        <a href="web.html"><i class="fas fa-globe"></i> Web Hosting</a>
+                    </div>
+                </div>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="panel.html" class="nav-btn">Client Panel</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="minecraft-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="minecraft-badge">
+                    <i class="fas fa-bolt"></i>
+                    #1 Rated Minecraft Hosting
+                </div>
+                
+                <h1 class="hero-title">Premium <span class="gradient-text">Minecraft Hosting</span></h1>
+                <p class="hero-description">Experience lag-free gaming with AMD Ryzen 9 9950X, NVMe SSDs, and 10Gb/s networking. Deploy in 60 seconds.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">1.75</div>
+                        <div class="stat-label">USD / GB</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">99.9%</div>
+                        <div class="stat-label">Uptime SLA</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">60s</div>
+                        <div class="stat-label">Deploy Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">Expert Support</div>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#plans" class="btn btn-primary btn-glow">
+                        <i class="fas fa-rocket"></i> View Pricing Plans
+                    </a>
+                    <a href="#deploy" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i> See How It Works
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <div class="card-header">
+                        <div class="card-title">Most Popular</div>
+                        <div class="card-price">$14.00<span class="price-unit">/month</span></div>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>8GB DDR5 RAM</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Unlimited Player Slots</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>200GB NVMe SSD</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>One-Click Modpacks</span>
+                        </div>
+                    </div>
+                    <a href="#plans" class="card-btn">Deploy Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="minecraft-plans" id="plans">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Simple, Transparent Pricing</h6>
+                <h2 class="section-title">Choose Your <span class="gradient-text">Perfect Plan</span></h2>
+                <p class="section-description">All plans include our premium hardware, DDoS protection, and 24/7 support.</p>
+            </div>
+            
+            <div class="plans-toggle">
+                <button class="plan-toggle-btn active" data-period="monthly">Monthly Billing</button>
+                <button class="plan-toggle-btn" data-period="yearly">Yearly Billing (Save 20%)</button>
+            </div>
+            
+            <div class="plans-grid">
+                <!-- Starter Plan -->
+                <div class="plan-card">
+                    <div class="plan-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="plan-name">Starter</h3>
+                    <p class="plan-description">Perfect for small servers, testing, or personal play with friends.</p>
+                    
+                    <div class="plan-price">
+                        <div class="price-monthly">
+                            <div class="price-amount">$7.00</div>
+                            <div class="price-period">per month</div>
+                        </div>
+                        <div class="price-yearly" style="display: none;">
+                            <div class="price-amount">$5.60</div>
+                            <div class="price-period">per month</div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-features">
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>4GB DDR5 RAM</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Unlimited Player Slots</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>80GB NVMe SSD</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Java & Bedrock Support</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>DDoS Protection</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Daily Backups</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="plan-button">Get Started</a>
+                </div>
+                
+                <!-- Popular Plan -->
+                <div class="plan-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="plan-name">Premium</h3>
+                    <p class="plan-description">Ideal for growing communities, modpacks, and medium-sized networks.</p>
+                    
+                    <div class="plan-price">
+                        <div class="price-monthly">
+                            <div class="price-amount">$14.00</div>
+                            <div class="price-period">per month</div>
+                        </div>
+                        <div class="price-yearly" style="display: none;">
+                            <div class="price-amount">$11.20</div>
+                            <div class="price-period">per month</div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-features">
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>8GB DDR5 RAM</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Unlimited Player Slots</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>200GB NVMe SSD</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>One-Click Modpacks</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Priority Support</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Free Subdomain</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Auto Scaling</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="plan-button">Choose Premium</a>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="plan-card">
+                    <div class="plan-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3 class="plan-name">Enterprise</h3>
+                    <p class="plan-description">For large networks, high player counts, and maximum performance.</p>
+                    
+                    <div class="plan-price">
+                        <div class="price-monthly">
+                            <div class="price-amount">$28.00</div>
+                            <div class="price-period">per month</div>
+                        </div>
+                        <div class="price-yearly" style="display: none;">
+                            <div class="price-amount">$22.40</div>
+                            <div class="price-period">per month</div>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-features">
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>16GB DDR5 RAM</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Unlimited Player Slots</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>500GB NVMe SSD</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Dedicated Resources</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Custom JAR Support</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>White Glove Migration</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>24/7 Phone Support</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="plan-button">Go Enterprise</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px;">
+                    Need a custom plan? <a href="contact.html" style="color: var(--secondary); text-decoration: none; font-weight: 600;">Contact our sales team</a> for tailored solutions.
+                </p>
+                <a href="contact.html" class="btn btn-secondary">
+                    <i class="fas fa-headset"></i> Request Custom Plan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Highlight -->
+    <section class="minecraft-features">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Why Choose Zyloq</h6>
+                <h2 class="section-title">Built for <span class="gradient-text">Performance</span></h2>
+                <p class="section-description">Our Minecraft hosting is optimized for speed, reliability, and ease of use.</p>
+            </div>
+            
+            <!-- Feature 1: Hardware -->
+            <div class="feature-highlight">
+                <div class="feature-visual">
+                    <div class="feature-image">
+                        <div style="width: 100%; height: 400px; background: linear-gradient(135deg, #0B0B0B, #141414); border-radius: calc(var(--radius-lg) - 5px); display: flex; align-items: center; justify-content: center; color: white;">
+                            <div style="text-align: center; padding: 40px;">
+                                <i class="fas fa-microchip" style="font-size: 80px; color: var(--secondary); margin-bottom: 20px;"></i>
+                                <h3 style="font-size: 24px; margin-bottom: 10px;">AMD Ryzen 9 9950X</h3>
+                                <p style="color: var(--text-secondary);">16 Cores / 32 Threads @ 5.7GHz</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-bolt"></i>
+                        Blazing Fast
+                    </div>
+                </div>
+                <div class="feature-content">
+                    <h3>Enterprise-Grade Hardware</h3>
+                    <p>Our servers run on the latest AMD Ryzen 9 9950X processors with 16 cores and 32 threads, providing exceptional single-core performance crucial for Minecraft server hosting.</p>
+                    <p>Combined with DDR5 memory and NVMe SSD storage, your server will handle any number of players and complex modpacks without lag or performance issues.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <div class="feature-list-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">High Clock Speeds</h4>
+                                <p style="color: var(--text-secondary); font-size: 14px;">Up to 5.7GHz boost clock for optimal single-thread performance</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-list-item">
+                            <div class="feature-list-icon">
+                                <i class="fas fa-hdd"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">NVMe SSD Storage</h4>
+                                <p style="color: var(--text-secondary); font-size: 14px;">7000MB/s read speeds for faster world loading and chunk generation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature 2: Control Panel -->
+            <div class="feature-highlight" style="margin-top: 100px;">
+                <div class="feature-content">
+                    <h3>Modern Control Panel</h3>
+                    <p>Manage your Minecraft server with our intuitive, feature-rich control panel designed specifically for gaming servers. No technical knowledge required.</p>
+                    <p>From one-click modpack installation to real-time monitoring and automated backups, everything you need is at your fingertips.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <div class="feature-list-icon">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">One-Click Modpacks</h4>
+                                <p style="color: var(--text-secondary); font-size: 14px;">Install popular modpacks like FTB, CurseForge, and Technic with a single click</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-list-item">
+                            <div class="feature-list-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Real-time Monitoring</h4>
+                                <p style="color: var(--text-secondary); font-size: 14px;">Monitor CPU, RAM, and player activity in real-time with detailed graphs</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-list-item">
+                            <div class="feature-list-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Auto Backups</h4>
+                                <p style="color: var(--text-secondary); font-size: 14px;">Automated daily backups with point-in-time recovery options</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <div class="feature-image">
+                        <div style="width: 100%; height: 400px; background: linear-gradient(135deg, #141414, #0B0B0B); border-radius: calc(var(--radius-lg) - 5px); display: flex; align-items: center; justify-content: center; color: white;">
+                            <div style="text-align: center; padding: 40px;">
+                                <i class="fas fa-sliders-h" style="font-size: 80px; color: var(--secondary); margin-bottom: 20px;"></i>
+                                <h3 style="font-size: 24px; margin-bottom: 10px;">Modern Dashboard</h3>
+                                <p style="color: var(--text-secondary);">Intuitive Server Management</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-magic"></i>
+                        Easy to Use
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Modpacks -->
+    <section class="modpacks-section">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">One-Click Installation</h6>
+                <h2 class="section-title">Popular <span class="gradient-text">Modpacks</span></h2>
+                <p class="section-description">Install your favorite modpacks with a single click. We support all major platforms.</p>
+            </div>
+            
+            <div class="modpacks-grid">
+                <div class="modpack-card">
+                    <div class="modpack-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h4 class="modpack-name">Feed The Beast</h4>
+                    <div class="modpack-version">40+ Packs Available</div>
+                    <a href="#" class="modpack-button">Install Now</a>
+                </div>
+                
+                <div class="modpack-card">
+                    <div class="modpack-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h4 class="modpack-name">CurseForge</h4>
+                    <div class="modpack-version">1000+ Modpacks</div>
+                    <a href="#" class="modpack-button">Install Now</a>
+                </div>
+                
+                <div class="modpack-card">
+                    <div class="modpack-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4 class="modpack-name">Technic Launcher</h4>
+                    <div class="modpack-version">Official Support</div>
+                    <a href="#" class="modpack-button">Install Now</a>
+                </div>
+                
+                <div class="modpack-card">
+                    <div class="modpack-icon">
+                        <i class="fas fa-dungeon"></i>
+                    </div>
+                    <h4 class="modpack-name">ATLauncher</h4>
+                    <div class="modpack-version">All Versions</div>
+                    <a href="#" class="modpack-button">Install Now</a>
+                </div>
+                
+                <div class="modpack-card">
+                    <div class="modpack-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h4 class="modpack-name">SkyFactory 4</h4>
+                    <div class="modpack-version">v4.2.2</div>
+                    <a href="#" class="modpack-button">Install Now</a>
+                </div>
+                
+                <div class="modpack-card">
+                    <div class="modpack-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h4 class="modpack-name">RLCraft</h4>
+                    <div class="modpack-version">v2.9.3</div>
+                    <a href="#" class="modpack-button">Install Now</a>
+                </div>
+                
+                <div class="modpack-card">
+                    <div class="modpack-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h4 class="modpack-name">Create Mod</h4>
+                    <div class="modpack-version">A&B, Above & Beyond</div>
+                    <a href="#" class="modpack-button">Install Now</a>
+                </div>
+                
+                <div class="modpack-card">
+                    <div class="modpack-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <h4 class="modpack-name">Custom Pack</h4>
+                    <div class="modpack-version">Upload Your Own</div>
+                    <a href="#" class="modpack-button">Learn More</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="#" class="btn btn-primary btn-glow">
+                    <i class="fas fa-box-open"></i> Browse All Modpacks
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Why We're Better</h6>
+                <h2 class="section-title">Compare With <span class="gradient-text">Competitors</span></h2>
+                <p class="section-description">See how Zyloq Hosting outperforms other Minecraft hosting providers.</p>
+            </div>
+            
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div>Feature</div>
+                    <div>Zyloq Hosting</div>
+                    <div>Competitor A</div>
+                    <div>Competitor B</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Processor</div>
+                    <div class="comparison-value">Ryzen 9 9950X</div>
+                    <div class="comparison-value">Ryzen 7 5800X</div>
+                    <div class="comparison-value">Intel i7-10700K</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Storage Type</div>
+                    <div class="comparison-value">NVMe PCIe 4.0</div>
+                    <div class="comparison-value">SATA SSD</div>
+                    <div class="comparison-value">NVMe PCIe 3.0</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Network Speed</div>
+                    <div class="comparison-value">10Gb/s</div>
+                    <div class="comparison-value">1Gb/s</div>
+                    <div class="comparison-value">1Gb/s</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">DDoS Protection</div>
+                    <div class="comparison-value check"><i class="fas fa-check-circle"></i></div>
+                    <div class="comparison-value check"><i class="fas fa-check-circle"></i></div>
+                    <div class="comparison-value cross"><i class="fas fa-times-circle"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">One-Click Modpacks</div>
+                    <div class="comparison-value check"><i class="fas fa-check-circle"></i></div>
+                    <div class="comparison-value check"><i class="fas fa-check-circle"></i></div>
+                    <div class="comparison-value check"><i class="fas fa-check-circle"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Free Backups</div>
+                    <div class="comparison-value check"><i class="fas fa-check-circle"></i></div>
+                    <div class="comparison-value cross"><i class="fas fa-times-circle"></i></div>
+                    <div class="comparison-value cross"><i class="fas fa-times-circle"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">24/7 Phone Support</div>
+                    <div class="comparison-value check"><i class="fas fa-check-circle"></i></div>
+                    <div class="comparison-value cross"><i class="fas fa-times-circle"></i></div>
+                    <div class="comparison-value cross"><i class="fas fa-times-circle"></i></div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Price per GB RAM</div>
+                    <div class="comparison-value">$1.75</div>
+                    <div class="comparison-value">$2.50</div>
+                    <div class="comparison-value">$3.00</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="minecraft-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Server Types</h6>
+                <h2 class="section-title">Host Any <span class="gradient-text">Minecraft Server</span></h2>
+                <p class="section-description">From vanilla survival to complex modded networks, we've got you covered.</p>
+            </div>
+            
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <div class="showcase-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #00a86b, #0074FF); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-tree" style="font-size: 80px; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="showcase-content">
+                        <div class="showcase-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 style="margin-bottom: 15px;">Survival</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Classic Minecraft experience with friends. Perfect for small to medium communities.</p>
+                        <a href="#" style="color: var(--secondary); text-decoration: none; font-weight: 600;">Learn More →</a>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #FF6B6B, #FFAA00); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-fist-raised" style="font-size: 80px; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="showcase-content">
+                        <div class="showcase-icon">
+                            <i class="fas fa-skull-crossbones"></i>
+                        </div>
+                        <h3 style="margin-bottom: 15px;">PvP / Factions</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">High-performance hosting for competitive gameplay with plugins like Factions, Towny, and more.</p>
+                        <a href="#" style="color: var(--secondary); text-decoration: none; font-weight: 600;">Learn More →</a>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #9D4EDD, #560BAD); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-hat-wizard" style="font-size: 80px; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="showcase-content">
+                        <div class="showcase-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3 style="margin-bottom: 15px;">Modded</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Run complex modpacks like FTB, RLCraft, or create your own custom modded experience.</p>
+                        <a href="#" style="color: var(--secondary); text-decoration: none; font-weight: 600;">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deploy Process -->
+    <section class="deploy-section" id="deploy">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Get Started in Minutes</h6>
+                <h2 class="section-title">Deploy Your Server <span class="gradient-text">in 60 Seconds</span></h2>
+                <p class="section-description">Setting up your Minecraft server has never been easier.</p>
+            </div>
+            
+            <div class="deploy-card">
+                <h3 style="margin-bottom: 20px;">Simple 3-Step Process</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    From choosing your plan to playing with friends, we've streamlined the entire process.
+                </p>
+                
+                <div class="deploy-steps">
+                    <div class="deploy-step">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Choose Your Plan</div>
+                        <div class="step-description">Select the perfect plan for your needs based on player count and mod requirements.</div>
+                    </div>
+                    
+                    <div class="deploy-step">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Configure & Deploy</div>
+                        <div class="step-description">Customize your server settings, install modpacks, and deploy with one click.</div>
+                    </div>
+                    
+                    <div class="deploy-step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Invite & Play</div>
+                        <div class="step-description">Share your server IP with friends and start playing immediately.</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 50px;">
+                    <a href="#plans" class="btn btn-primary btn-large btn-glow">
+                        <i class="fas fa-rocket"></i> Start Your Server Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Start Your Minecraft Journey?</h2>
+                    <p class="cta-description">Join thousands of satisfied players and experience premium Minecraft hosting.</p>
+                    
+                    <div class="cta-features">
+                        <div class="cta-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>60-second deployment</span>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>7-day money-back guarantee</span>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-headset"></i>
+                            <span>24/7 expert support</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#plans" class="btn btn-primary btn-large btn-glow">
+                        <i class="fas fa-server"></i> View Plans & Pricing
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-question-circle"></i> Need Help?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span class="logo-text">Zyloq<span class="logo-highlight">Hosting</span></span>
+                    </a>
+                    <p class="footer-description">Premium Minecraft hosting powered by AMD Ryzen 9 9950X and NVMe SSDs.</p>
+                    
+                    <div class="footer-social">
+                        <a href="https://discord.gg/aGAtT6Bepa" target="_blank" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="minecraft.html" class="footer-link active">Minecraft Hosting</a>
+                    <a href="vps.html" class="footer-link">VPS Hosting</a>
+                    <a href="web.html" class="footer-link">Web Hosting</a>
+                    <a href="features.html" class="footer-link">Features</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Status</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal</h4>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Refund Policy</a>
+                    <a href="#" class="footer-link">Acceptable Use</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Discord: https://discord.gg/aGAtT6Bepa</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Web: www.zyloqhosting.store</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Panel: panel.zyloq.store</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© <span class="current-year">2023</span> Zyloq Hosting. All rights reserved.</p>
+                <div class="footer-payments">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Minecraft-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Plan toggling
+            const planToggleBtns = document.querySelectorAll('.plan-toggle-btn');
+            const monthlyPrices = document.querySelectorAll('.price-monthly');
+            const yearlyPrices = document.querySelectorAll('.price-yearly');
+            
+            planToggleBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    planToggleBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const period = this.dataset.period;
+                    
+                    // Show/hide prices
+                    if (period === 'monthly') {
+                        monthlyPrices.forEach(el => el.style.display = 'block');
+                        yearlyPrices.forEach(el => el.style.display = 'none');
+                    } else {
+                        monthlyPrices.forEach(el => el.style.display = 'none');
+                        yearlyPrices.forEach(el => el.style.display = 'block');
+                    }
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Plan card hover effects
+            const planCards = document.querySelectorAll('.plan-card');
+            planCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = this.classList.contains('popular') 
+                        ? 'scale(1.05) translateY(-10px)' 
+                        : 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = this.classList.contains('popular') 
+                        ? 'scale(1.05)' 
+                        : 'translateY(0)';
+                });
+            });
+            
+            // Animate counters in hero stats
+            const statValues = document.querySelectorAll('.stat-value');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const value = entry.target.textContent;
+                        if (value.includes('.')) {
+                            // For decimal values
+                            animateCounter(entry.target, parseFloat(value), 1000);
+                        } else if (value.includes('%')) {
+                            // For percentage values
+                            animateCounter(entry.target, parseFloat(value), 1000, '%');
+                        } else if (value.includes('s')) {
+                            // For time values
+                            animateCounter(entry.target, parseFloat(value), 1000, 's');
+                        } else {
+                            // For regular numbers
+                            animateCounter(entry.target, parseFloat(value), 1000);
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statValues.forEach(value => observer.observe(value));
+            
+            function animateCounter(element, target, duration, suffix = '') {
+                const start = 0;
+                const increment = target / (duration / 16); // 60fps
+                let current = start;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    if (suffix === '%') {
+                        element.textContent = current.toFixed(1) + suffix;
+                    } else if (suffix === 's') {
+                        element.textContent = Math.round(current) + suffix;
+                    } else if (target < 10) {
+                        element.textContent = current.toFixed(2) + suffix;
+                    } else {
+                        element.textContent = Math.round(current) + suffix;
+                    }
+                }, 16);
+            }
+            
+            // Modpack card hover effects
+            const modpackCards = document.querySelectorAll('.modpack-card');
+            modpackCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.modpack-icon');
+                    icon.style.transform = 'scale(1.2)';
+                    icon.style.transition = 'transform 0.3s ease';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.modpack-icon');
+                    icon.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

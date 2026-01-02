@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Hosting | LiteSpeed | Zyloq Hosting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <style>
+        /* Additional styles for Web Hosting page */
+        .web-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .web-feature-card {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+        
+        .web-feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+        }
+        
+        .web-feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(85, 204, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+            color: var(--secondary);
+        }
+        
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 60px 0;
+        }
+        
+        .tech-item {
+            text-align: center;
+            width: 120px;
+        }
+        
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 28px;
+            color: var(--text);
+        }
+        
+        .tech-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .included-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .included-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+        }
+        
+        .included-item i {
+            color: var(--secondary);
+        }
+        
+        .guarantee-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(85, 204, 255, 0.1);
+            color: var(--secondary);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="logo-text">Zyloq<span class="logo-highlight">Hosting</span></span>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link active">Services <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="minecraft.html"><i class="fas fa-cube"></i> Minecraft Hosting</a>
+                        <a href="vps.html"><i class="fas fa-server"></i> VPS Hosting</a>
+                        <a href="web.html" class="active"><i class="fas fa-globe"></i> Web Hosting</a>
+                    </div>
+                </div>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="panel.html" class="nav-btn">Client Panel</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h6 class="hero-subtitle">Premium Web Hosting</h6>
+                <h1 class="hero-title">Blazing-Fast <span class="gradient-text">Web Hosting</span></h1>
+                <p class="hero-description">LiteSpeed Servers • Free SSL • Automated Backups • 99.9% Uptime</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">3.99</div>
+                        <div class="stat-label">Starting at</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">99.9%</div>
+                        <div class="stat-label">Uptime SLA</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">Free</div>
+                        <div class="stat-label">SSL Certificates</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#plans" class="btn btn-primary btn-glow">
+                        <i class="fas fa-globe"></i> View Web Plans
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-question-circle"></i> Get Help
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <div class="card-header">
+                        <div class="card-title">Starter Plan</div>
+                        <div class="card-price">$3.99<span class="price-unit">/month</span></div>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>1 Website</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>10GB SSD Storage</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Unlimited Bandwidth</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Free SSL Certificate</span>
+                        </div>
+                    </div>
+                    <a href="#" class="card-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-bg-particles" id="particles-js"></div>
+        <div class="hero-gradient"></div>
+    </section>
+
+    <!-- Web Hosting Features -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Why Choose Us</h6>
+                <h2 class="section-title">Optimized for <span class="gradient-text">Speed & Security</span></h2>
+                <p class="section-description">Our web hosting platform is built with performance and security in mind.</p>
+            </div>
+            
+            <div class="web-features-grid">
+                <div class="web-feature-card">
+                    <div class="web-feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>LiteSpeed Technology</h3>
+                    <p style="color: var(--text-secondary); margin-top: 15px;">Up to 5x faster than traditional Apache servers with built-in caching.</p>
+                </div>
+                
+                <div class="web-feature-card">
+                    <div class="web-feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Free SSL Certificates</h3>
+                    <p style="color: var(--text-secondary); margin-top: 15px;">Auto-renewing SSL certificates for all domains with Let's Encrypt integration.</p>
+                </div>
+                
+                <div class="web-feature-card">
+                    <div class="web-feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Automated Backups</h3>
+                    <p style="color: var(--text-secondary); margin-top: 15px;">Daily automated backups with 30-day retention and one-click restoration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section" style="background: var(--dark-gray);">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Technology Stack</h6>
+                <h2 class="section-title">Modern <span class="gradient-text">Tech Stack</span></h2>
+                <p class="section-description">We use the latest technologies to ensure optimal performance and compatibility.</p>
+            </div>
+            
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-php"></i>
+                    </div>
+                    <div class="tech-label">PHP 8.2+</div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="tech-label">MySQL 8.0</div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <div class="tech-label">Node.js 18+</div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="tech-label">Python 3.11</div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fab fa-wordpress"></i>
+                    </div>
+                    <div class="tech-label">WordPress</div>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="tech-label">cPanel</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Hosting Plans -->
+    <section class="section" id="plans">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">Web Hosting Plans</h6>
+                <h2 class="section-title">Choose Your <span class="gradient-text">Hosting Plan</span></h2>
+                <p class="section-description">All plans include free SSL, daily backups, and 24/7 support.</p>
+                
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 30px;">
+                    <button class="billing-toggle active" data-period="monthly">Monthly Billing</button>
+                    <button class="billing-toggle" data-period="yearly">Yearly Billing (Save 25%)</button>
+                </div>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Starter Plan -->
+                <div class="service-card">
+                    <div class="service-icon web">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Starter</h3>
+                    <p class="service-description">Perfect for personal websites, blogs, and small business sites.</p>
+                    
+                    <div class="service-price">
+                        <div class="price-monthly">
+                            Starting at <span class="price">$3.99</span> / month
+                        </div>
+                        <div class="price-yearly" style="display: none;">
+                            Starting at <span class="price">$2.99</span> / month
+                        </div>
+                    </div>
+                    
+                    <div class="included-list">
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>1 Website</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>10GB SSD Storage</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Unlimited Bandwidth</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Free SSL Certificate</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>10 Email Accounts</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>cPanel Control Panel</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="card-btn" style="margin-top: 20px;">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Business Plan (Most Popular) -->
+                <div class="service-card" style="border: 2px solid var(--primary); position: relative;">
+                    <div class="plan-badge" style="position: absolute; top: 20px; right: 20px;">Most Popular</div>
+                    <div class="service-icon web">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Business</h3>
+                    <p class="service-description">Ideal for growing businesses with multiple websites and higher traffic.</p>
+                    
+                    <div class="service-price">
+                        <div class="price-monthly">
+                            Starting at <span class="price">$7.99</span> / month
+                        </div>
+                        <div class="price-yearly" style="display: none;">
+                            Starting at <span class="price">$5.99</span> / month
+                        </div>
+                    </div>
+                    
+                    <div class="included-list">
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>10 Websites</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>50GB SSD Storage</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Unlimited Bandwidth</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Free SSL Certificate</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Unlimited Email Accounts</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>cPanel Control Panel</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Daily Backups</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Free Domain (1st year)</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="card-btn" style="margin-top: 20px; background: var(--gradient);">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="service-card">
+                    <div class="service-icon web">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Enterprise</h3>
+                    <p class="service-description">High-performance hosting for large websites and e-commerce platforms.</p>
+                    
+                    <div class="service-price">
+                        <div class="price-monthly">
+                            Starting at <span class="price">$14.99</span> / month
+                        </div>
+                        <div class="price-yearly" style="display: none;">
+                            Starting at <span class="price">$11.24</span> / month
+                        </div>
+                    </div>
+                    
+                    <div class="included-list">
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Unlimited Websites</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>100GB SSD Storage</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Unlimited Bandwidth</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Free SSL Certificate</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Unlimited Email Accounts</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>cPanel Control Panel</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Daily Backups</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Free Domain (1st year)</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Dedicated IP Address</span>
+                        </div>
+                        <div class="included-item">
+                            <i class="fas fa-check"></i>
+                            <span>Priority Support</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="card-btn" style="margin-top: 20px;">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Money Back Guarantee -->
+    <section class="section" style="background: var(--dark);">
+        <div class="container">
+            <div class="cta-card" style="background: var(--dark-gray);">
+                <div class="cta-content" style="text-align: center;">
+                    <div class="guarantee-badge">
+                        <i class="fas fa-shield-alt"></i> 30-Day Money-Back Guarantee
+                    </div>
+                    <h2 class="cta-title">Try Risk-Free for 30 Days</h2>
+                    <p class="cta-description">If you're not completely satisfied with our web hosting service, we'll refund your payment within the first 30 days. No questions asked.</p>
+                    
+                    <div class="cta-features" style="justify-content: center;">
+                        <div class="cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>No setup fees</span>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Cancel anytime</span>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Full refund guaranteed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#plans" class="btn btn-primary btn-large btn-glow">
+                        <i class="fas fa-rocket"></i> Start Your Trial
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-question-circle"></i> Ask Questions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span class="logo-text">Zyloq<span class="logo-highlight">Hosting</span></span>
+                    </a>
+                    <p class="footer-description">Premium web hosting built on enterprise hardware with 24/7 expert support.</p>
+                    
+                    <div class="footer-social">
+                        <a href="https://discord.gg/aGAtT6Bepa" target="_blank" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="minecraft.html" class="footer-link">Minecraft Hosting</a>
+                    <a href="vps.html" class="footer-link">VPS Hosting</a>
+                    <a href="web.html" class="footer-link active">Web Hosting</a>
+                    <a href="features.html" class="footer-link">Features</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="contact.html" class="footer-link">Contact</a>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Status</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal</h4>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Refund Policy</a>
+                    <a href="#" class="footer-link">Acceptable Use</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Discord: https://discord.gg/aGAtT6Bepa</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Web: www.zyloqhosting.store</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Panel: panel.zyloq.store</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© <span class="current-year">2023</span> Zyloq Hosting. All rights reserved.</p>
+                <div class="footer-payments">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/particles.js"></script>
+</body>
+</html>

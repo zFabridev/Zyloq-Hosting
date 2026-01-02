@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Zyloq Hosting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <style>
+        /* Additional styles for Contact page */
+        .contact-hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+        
+        .contact-info {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .method-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 116, 255, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+        
+        .method-content h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .method-content p {
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+        
+        .method-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .method-link:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background: var(--dark-gray);
+            border-radius: var(--radius-lg);
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-section {
+            background: var(--dark-gray);
+            padding: 100px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+        
+        .faq-item {
+            background: var(--dark);
+            border-radius: var(--radius-lg);
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .faq-answer.active {
+            padding: 0 30px 30px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            color: var(--secondary);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .response-time {
+            display: inline-block;
+            background: rgba(85, 204, 255, 0.1);
+            color: var(--secondary);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="logo-text">Zyloq<span class="logo-highlight">Hosting</span></span>
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Services <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="minecraft.html"><i class="fas fa-cube"></i> Minecraft Hosting</a>
+                        <a href="vps.html"><i class="fas fa-server"></i> VPS Hosting</a>
+                        <a href="web.html"><i class="fas fa-globe"></i> Web Hosting</a>
+                    </div>
+                </div>
+                <a href="features.html" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+                <a href="panel.html" class="nav-btn">Client Panel</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h6 class="section-subtitle">Get in Touch</h6>
+            <h1 class="hero-title">We're Here to <span class="gradient-text">Help</span></h1>
+            <p class="hero-description" style="max-width: 700px; margin: 0 auto 40px;">Have questions about our services, need technical support, or want to discuss a custom solution? Our team is ready to assist you.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-value">< 15min</div>
+                    <div class="stat-label">Avg Response Time</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">5K+</div>
+                    <div class="stat-label">Issues Resolved</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2 style="margin-bottom: 20px;">Contact Information</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 40px;">Choose the most convenient way to reach our team. We're available 24/7 to answer your questions and provide support.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-discord"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Discord Support</h4>
+                                <p>Fastest response time for technical support and general inquiries.</p>
+                                <a href="https://discord.gg/aGAtT6Bepa" target="_blank" class="method-link">
+                                    https://discord.gg/aGAtT6Bepa
+                                </a>
+                                <div class="response-time">< 15 minutes</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Email Support</h4>
+                                <p>For detailed inquiries, billing questions, or partnership opportunities.</p>
+                                <a href="mailto:support@zyloqhosting.store" class="method-link">
+                                    support@zyloqhosting.store
+                                </a>
+                                <div class="response-time">< 4 hours</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Website & Panel</h4>
+                                <p>Main website and client panel for account management.</p>
+                                <p>
+                                    <strong>Web:</strong> 
+                                    <a href="https://www.zyloqhosting.store" target="_blank" class="method-link">
+                                        www.zyloqhosting.store
+                                    </a>
+                                </p>
+                                <p>
+                                    <strong>Panel:</strong> 
+                                    <a href="https://panel.zyloq.store" target="_blank" class="method-link">
+                                        panel.zyloq.store
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Sales Inquiries</h4>
+                                <p>For custom solutions, enterprise plans, or partnership opportunities.</p>
+                                <a href="mailto:sales@zyloqhosting.store" class="method-link">
+                                    sales@zyloqhosting.store
+                                </a>
+                                <div class="response-time">< 2 hours</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2 style="margin-bottom: 30px;">Send us a Message</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 40px;">Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name</label>
+                            <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" id="email" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Subject</label>
+                            <select id="subject" class="form-input" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="billing">Billing Inquiry</option>
+                                <option value="sales">Sales / Custom Plan</option>
+                                <option value="abuse">Abuse Report</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea id="message" class="form-textarea" placeholder="Describe your inquiry in detail..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h6 class="section-subtitle">FAQ</h6>
+                <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <p class="section-description">Find quick answers to common questions about our services and support.</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is your average response time for support?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Our average response time is under 15 minutes for Discord support and under 4 hours for email support. Premium support customers receive priority response with guaranteed under 5 minute response times during business hours.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you offer custom hosting solutions?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we offer custom hosting solutions for businesses, large communities, and enterprise clients. Contact our sales team at sales@zyloqhosting.store to discuss your requirements and get a custom quote.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What payment methods do you accept?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and cryptocurrencies (Bitcoin, Ethereum, Litecoin). All payments are processed securely through our payment partners.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you have a money-back guarantee?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we offer a 30-day money-back guarantee on all our hosting plans. If you're not satisfied with our service within the first 30 days, contact our billing department for a full refund, no questions asked.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I migrate my server from another host?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We offer free migration assistance for new customers. Simply contact our support team after signing up, and we'll help you migrate your server files, databases, and configurations from your previous host.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What kind of DDoS protection do you provide?
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We provide enterprise-grade DDoS protection capable of mitigating attacks up to 2Tbps. Our multi-layered protection includes network-level filtering, rate limiting, and behavioral analysis to ensure your services remain online during attacks.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2 class="cta-title">Still Have Questions?</h2>
+                    <p class="cta-description">Join our Discord community for real-time support and discussions with other Zyloq Hosting customers.</p>
+                    
+                    <div class="cta-features">
+                        <div class="cta-feature">
+                            <i class="fab fa-discord"></i>
+                            <span>Live chat with support staff</span>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-users"></i>
+                            <span>Community of 5,000+ members</span>
+                        </div>
+                        <div class="cta-feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Under 15 minute response time</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="https://discord.gg/aGAtT6Bepa" target="_blank" class="btn btn-primary btn-large btn-glow">
+                        <i class="fab fa-discord"></i> Join Discord
+                    </a>
+                    <a href="panel.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-tachometer-alt"></i> Client Panel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span class="logo-text">Zyloq<span class="logo-highlight">Hosting</span></span>
+                    </a>
+                    <p class="footer-description">Premium hosting with 24/7 expert support and enterprise infrastructure.</p>
+                    
+                    <div class="footer-social">
+                        <a href="https://discord.gg/aGAtT6Bepa" target="_blank" class="social-link">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="minecraft.html" class="footer-link">Minecraft Hosting</a>
+                    <a href="vps.html" class="footer-link">VPS Hosting</a>
+                    <a href="web.html" class="footer-link">Web Hosting</a>
+                    <a href="features.html" class="footer-link">Features</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Company</h4>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="contact.html" class="footer-link active">Contact</a>
+                    <a href="#" class="footer-link">Blog</a>
+                    <a href="#" class="footer-link">Status</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Legal</h4>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Refund Policy</a>
+                    <a href="#" class="footer-link">Acceptable Use</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact</h4>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Discord: https://discord.gg/aGAtT6Bepa</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Web: www.zyloqhosting.store</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Panel: panel.zyloq.store</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© <span class="current-year">2023</span> Zyloq Hosting. All rights reserved.</p>
+                <div class="footer-payments">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/particles.js"></script>
+    <script>
+        // FAQ toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                question.addEventListener('click', () => {
+                    // Close other open items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    answer.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
